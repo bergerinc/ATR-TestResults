@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <title>ATR - Test Results</title>
+        <meta name="description" content="Results of automated test runs.">
+        <meta name="keywords" content="Automated Test Results">
+        <meta name="author" content="Bill Berger (CSI)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png" sizes="32x32">
+        
+        <link href="/assets/css/loader.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/css/styles.css" rel="stylesheet">
+
+        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/node_modules/chart.js//dist/Chart.min.js"></script>
+    </head>
+    <body>
+        <div class="body-content">
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="brand-container">
+                            <a class="navbar-brand" href="#">
+                                <img src="/assets/images/icons/bug.png" class="logo">
+                                <span class="brand-main-text">Automated Test Results</span>
+                            </a>
+                        </div>
+                        <div class="nav-items">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-2 text-left">
+                                        <div class="icons"><span class="fa fa-refresh"></span></div>
+                                        <div class="icons"><span class="fa fa-cog"></span></div>
+                                    </div>
+                                    <div class="title col-xs-8 text-center"><h4>WatchDog Elite (Dev Test 1)</h4></div>
+                                    <div class="col-xs-2 text-right">
+                                        <div class="user">
+                                            <div class="user-image"></div>
+                                            <div class="user-name">John Doe</div>
+                                            <div class="icons"><span class="fa fa-sign-out"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </nav> <!-- end navbar -->
+
+            <div class="sidenav">
+                <ul style="display:none;">
+                    <li><div><span class="fa fa-dashboard"></span></div><div>Dashboard</div></li>
+                </ul>
+                <ul>
+                    <li><div><span class="fa fa-server"></span></div><div>Demo</div></li>
+                    <li class="selected"><div><span class="fa fa-server"></div><div>Dev Test 1</div></li>
+                    <li><div><span class="fa fa-server"></div><div>Pre-Prod</div></li>
+                    <li><div><span class="fa fa-server"></div><div>Production (Paducah)</div></li>
+                    <li><div><span class="fa fa-server"></div><div>Production (Valpo)</div></li>
+                    <li><div><span class="fa fa-server"></div><div>QA Test 1</div></li>
+                    <li><div><span class="fa fa-server"></div><div>Test</div></li>
+                </ul>
+            </div>
+
+            <div class="main-content"> 
+                <section class="app-tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab1">WatchDog Elite</a></li>
+                        <li><a data-toggle="tab" href="#tab2">WatchDog Wire</a></li>
+                    </ul>  
+                    <div class="tab-content">
+                        <div id="tab1" class="tab-pane fade in active">
+                            <div class="container-fluid">
+                                <div class="metrics row">
+                                    <div class="total-tests col-xs-3">
+                                        <header>Total Tests</header>
+                                        <div class="metrics-content">
+                                            <p>889</p>
+                                        </div>
+                                    </div>
+                                    <div class="failed-tests col-xs-3">
+                                        <header>Failed Tests</header>
+                                        <div class="metrics-content">
+                                            <canvas id="cnv-failed-tests" width="60" height="60"></canvas>
+                                            <p>12</p>
+                                        </div>
+                                    </div>
+                                    <div class="pass-percent col-xs-3">
+                                        <header>Pass Percentage</header>
+                                        <div class="metrics-content">
+                                            <canvas id="cnv-pass-percent" width="60" height="60"></canvas>
+                                            <p>62.9%</p>
+                                        </div>
+                                    </div>
+                                    <div class="run-duration col-xs-3">
+                                        <header>Run Duration</header>
+                                        <div class="metrics-content">
+                                            <p>50m 2.4s</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="run-date failed">08-08-16 10:24:05 AM</h3>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Scenario</th>
+                                        <th>Run By</th>
+                                        <th>Started</th>
+                                        <th>Finished</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>alkjakljflka</td>
+                                            <td>adlkalkdjakl;dja;slj alksd;kasjdk aklsdjak;ld</td>
+                                            <td>John Doe</td>
+                                            <td>08-08-16 09:58:42 AM</td>
+                                            <td>08-08-16 10:24:05 AM</td>
+                                            <td class="failed">N</td>
+                                        </tr>
+                                        <tr>
+                                            <td>alkjakljflka</td>
+                                            <td>adlkalkdjakl;dja;slj alksd;kasjdk aklsdjak;ld</td>
+                                            <td>John Doe</td>
+                                            <td>08-08-16 09:58:42 AM</td>
+                                            <td>08-08-16 10:24:05 AM</td>
+                                            <td class="passed">Y</td>
+                                        </tr>
+                                        <tr>
+                                            <td>alkjakljflka</td>
+                                            <td>adlkalkdjakl;dja;slj alksd;kasjdk aklsdjak;ld</td>
+                                            <td>John Doe</td>
+                                            <td>08-08-16 09:58:42 AM</td>
+                                            <td>08-08-16 10:24:05 AM</td>
+                                            <td class="passed">Y</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h3 class="run-date passed">07-14-16 04:53:21 PM</h3>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Scenario</th>
+                                        <th>Run By</th>
+                                        <th>Started</th>
+                                        <th>Finished</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>alkjakljflka</td>
+                                            <td>adlkalkdjakl;dja;slj alksd;kasjdk aklsdjak;ld</td>
+                                            <td>John Doe</td>
+                                            <td>08-08-16 09:58:42 AM</td>
+                                            <td>08-08-16 10:24:05 AM</td>
+                                            <td class="passed">Y</td>
+                                        </tr>
+                                        <tr>
+                                            <td>alkjakljflka</td>
+                                            <td>adlkalkdjakl;dja;slj alksd;kasjdk aklsdjak;ld</td>
+                                            <td>John Doe</td>
+                                            <td>08-08-16 09:58:42 AM</td>
+                                            <td>08-08-16 10:24:05 AM</td>
+                                            <td class="passed">Y</td>
+                                        </tr>
+                                        <tr>
+                                            <td>alkjakljflka</td>
+                                            <td>adlkalkdjakl;dja;slj alksd;kasjdk aklsdjak;ld</td>
+                                            <td>John Doe</td>
+                                            <td>08-08-16 09:58:42 AM</td>
+                                            <td>08-08-16 10:24:05 AM</td>
+                                            <td class="passed">Y</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab-pane fade">
+                            <h3>Tab 2</h3>
+                            <p>Some content in menu 1.</p>
+                        </div>
+                    </div> 
+                </section>
+            </div>
+            <div class="clear"></div>
+
+        </div> <!-- end content -->
+        <script>
+            $().ready(function(){
+                var data2 = {
+                    labels: [],
+                    datasets: [
+                        {
+                            data: [37,63],
+                            backgroundColor: [
+                                "#ff0000",
+                                "#00a000"
+                            ]
+                        }]
+                };
+                var data1 = {
+                    labels: [],
+                    datasets: [
+                        {
+                            data: [12,0],
+                            backgroundColor: [
+                                "#ff0000",
+                                "#00a000"
+                            ]
+                        }]
+                };
+
+                var options = {
+                    cutOutPercentage: 50,
+                    tooltips: {
+                        enabled: false
+                    }
+                }
+
+                var cnvFT = document.getElementById('cnv-failed-tests');
+                var chartFailedTests = new Chart(cnvFT, {
+                    type: 'doughnut',
+                    data: data1
+                });
+
+                var cnvPP = document.getElementById('cnv-pass-percent');
+                var chartPassedPercent = new Chart(cnvPP, {
+                    type: 'doughnut',
+                    data: data2
+                });
+
+            });
+        </script>
+    </body>
+</html>
