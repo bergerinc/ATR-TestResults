@@ -408,10 +408,10 @@ section.app-tabs{
         -webkit-print-color-adjust: exact !important;
     }
     div.sidenav{
-        display:none;
+        display:none !important;
     }
     div.main-content{
-        left:0;
+        left:0 !important;
     }
 
     ul.nav-tabs {
