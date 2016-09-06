@@ -267,7 +267,7 @@ div.main-content{
     bottom:0;
     left:280px;
     vertical-align:top;
-    padding:0;
+    padding:65px 0 0;
     margin:0;
 }
 
@@ -378,7 +378,7 @@ section.app-tabs{
 
             &.passed,
             &.failed{
-                font-size:0;
+                color:#fff;
                 min-width:32px;
                 position:relative;
                 
@@ -397,6 +397,29 @@ section.app-tabs{
             }
             &.failed:before{
                 background-color:$font-color-red;
+            }
+        }
+    }
+}
+
+@media print
+{    
+    *{
+        -webkit-print-color-adjust: exact !important;
+    }
+    div.sidenav{
+        display:none;
+    }
+    div.main-content{
+        left:0;
+    }
+
+    ul.nav-tabs {
+        li{
+            display:none !important;
+           
+            &.active{
+                display:inline-block !important;
             }
         }
     }

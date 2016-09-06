@@ -2,17 +2,40 @@
     var obj = {};
 
     $().ready(function(){
+        init();
+    });
 
-        //set event handler for side nav toggle
-        $('div.brand-container i.fa-bars').on('click', function(){
-            toggleSideNav();
-        });
+    var init = function(){
+
+        //set event handlers
+        setSideNavToggleHandler();
+        setPrintIconHandler();
 
         //set charts
         setChart1();
         setChart2();
-    });
+    };
 
+    //--------------------------------------
+    // Event handlers
+    //--------------------------------------
+    var setSideNavToggleHandler = function(){
+        //set event handler for side nav toggle
+        $('div.brand-container i.fa-bars').on('click', function(){
+            toggleSideNav();
+        });
+    };
+
+    var setPrintIconHandler = function(){
+        //set event handler for side nav toggle
+        $('div.nav-items span.fa-print').on('click', function(){
+            printWindow();
+        });
+    };
+
+    //--------------------------------------
+    // Workers
+    //--------------------------------------
     var toggleSideNav = function(){
         var side = $('div.sidenav');
         var main = $('div.main-content');
@@ -25,6 +48,10 @@
             side.width('50px');
             main.css('left', '50px');
         }
+    };
+
+    var printWindow = function(){
+        win.print();
     };
 
     var setChart1 = function(){
@@ -46,6 +73,9 @@
         });
     };
 
+    //--------------------------------------
+    // Data
+    //--------------------------------------
     var getChartData1 = function(){
         var data = {
             labels: [],
