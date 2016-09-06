@@ -42,11 +42,20 @@
         var sideWidth = side.width();
 
         if(sideWidth === 50){
-            side.width('280px');
-            main.css('left', '280px');
+            side.animate({
+                width:280
+            }, 750, function(){});
+
+            main.animate({
+                left:280
+            }, 750, function(){});
         }else{
-            side.width('50px');
-            main.css('left', '50px');
+            side.animate({
+                width:50
+            }, 750, function(){});
+            main.animate({
+                left:50
+            }, 750, function(){});
         }
     };
 
