@@ -3,7 +3,7 @@ $font-color: #333;
 $font-color-light: #b7b0a4;
 $font-color-green: #00a000;
 $font-color-red: #ff0000;
-$font-stack:'Roboto', arial, helvetica, sans-serif;
+$font-stack:'roboto', arial, helvetica, sans-serif;
 $font-size:16px;
 
 $background-color:#fff;
@@ -27,6 +27,13 @@ $left-side-width: 280px;
 @mixin text-shadow(){
     -moz-text-shadow: none;
     text-shadow: none;
+}
+
+@font-face{
+    font-family: 'roboto';
+    src: url('/assets/fonts/roboto-regular-webfont.woff'),
+         url('/assets/fonts/roboto-regular-webfont.woff2');
+    font-weight: normal;
 }
 
 //styles
