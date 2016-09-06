@@ -26,8 +26,9 @@
                         <div class="brand-container">
                             <a class="navbar-brand" href="#">
                                 <img src="/assets/images/icons/bug.png" class="logo">
-                                <span class="brand-main-text">Automated Test Results</span>
+                                <span class="brand-main-text" title="Automated Test Runner | Test Results">ATR | Test Results</span>
                             </a>
+                            <i class="fa fa-bars"></i>
                         </div>
                         <div class="nav-items">
                             <div class="container-fluid">
@@ -194,51 +195,7 @@
             </div> <!-- end main-content -->
 
         </div> <!-- end body-content -->
-        <script>
-            $().ready(function(){
-                var data2 = {
-                    labels: [],
-                    datasets: [
-                        {
-                            data: [37,63],
-                            backgroundColor: [
-                                "#ff0000",
-                                "#00a000"
-                            ]
-                        }]
-                };
-                var data1 = {
-                    labels: [],
-                    datasets: [
-                        {
-                            data: [12,0],
-                            backgroundColor: [
-                                "#ff0000",
-                                "#00a000"
-                            ]
-                        }]
-                };
-
-                var options = {
-                    cutOutPercentage: 50,
-                    tooltips: {
-                        enabled: false
-                    }
-                }
-
-                var cnvFT = document.getElementById('cnv-failed-tests');
-                var chartFailedTests = new Chart(cnvFT, {
-                    type: 'doughnut',
-                    data: data1
-                });
-
-                var cnvPP = document.getElementById('cnv-pass-percent');
-                var chartPassedPercent = new Chart(cnvPP, {
-                    type: 'doughnut',
-                    data: data2
-                });
-
-            });
-        </script>
+        
+        <script src="/scripts/main.js"></script>
     </body>
 </html>
