@@ -1,8 +1,8 @@
 //variables
 $font-color: #333;
 $font-color-light: #333;
-$font-color-green: #00a000;
-$font-color-red: #ff0000;
+$font-color-green: #a1c855;
+$font-color-red: #ff4949;
 $font-color-blue: #0088cc;
 $font-stack:'roboto', arial, helvetica, sans-serif;
 $font-stack-bold:'roboto-bold', arial, helvetica, sans-serif;
@@ -11,11 +11,13 @@ $font-size:16px;
 $background-color:#fff;
 
 $primary-color: #d6d2cc;
-$secondary-color:#f1e8dc;
-$highlight-color:#f4511e;
+$secondary-color:#f0e9e0;
+$highlight-color:#e25c12;
 $brand-color:#7d7264;
+$test-run-title-color:#333; 
 $header-bar-background-color:#e3e2df;
 $table-header-background-color:#f9f8f4;
+$table-subheader-background-color:#f9f8f4;
 
 $left-side-color:#aca49a;
 $left-side-background-color:#fbf9f5;
@@ -316,6 +318,7 @@ section.app-tabs{
         border:1px solid #ddd;
         border-bottom:none;
         margin:0 auto;
+        width:98%;
 
         >div{
             border-right:1px solid #ddd;
@@ -367,6 +370,7 @@ section.app-tabs{
 
     .panel-flat{
         border-radius:0;
+        width:98%
     }
 
     .panel-heading-custom{
@@ -406,7 +410,7 @@ section.app-tabs{
 
             h4{
                 font-family: $font-stack-bold; 
-                font-size:.9em;
+                font-size:1em;
                 display:inline-block;
                 text-align:left;
                 vertical-align: middle;
@@ -459,10 +463,10 @@ section.app-tabs{
 
     h3.run-date{
         text-align:left;
-        width:100%;
+        width:98%;
         margin:40px auto 10px;
-        font-size:1.5em;
-        color:$font-color-light;
+        font-size:1.4em;
+        color:$test-run-title-color;
 
         &.passed{
             color:$font-color-green;
@@ -479,11 +483,31 @@ section.app-tabs{
         margin:0 auto;
         @include text-shadow();
 
+        caption{
+            font-size:.9em;
+            font-weight:700;
+            color:$font-color;
+            background-color: $table-header-background-color;
+            padding:7px 10px 7px 40px;
+            border-bottom: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            position:relative;
+
+            &:before{
+                content:"\2937";
+                position:absolute;
+                top:3px;
+                left:20px;
+                color:darken($header-bar-background-color,20%);
+                font-size:1.4em;
+            }
+        }
+
         tr{
             th{
-                font-size:.8em;
+                font-size:.75em;
                 font-weight:700;
-                background-color:$table-header-background-color;
+                background-color:$table-subheader-background-color;
                 border:1px solid #ddd;
 
                 &:first-child{
