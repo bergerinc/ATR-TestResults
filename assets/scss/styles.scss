@@ -1,8 +1,9 @@
 //variables
 $font-color: #333;
-$font-color-light: #b7b0a4;
+$font-color-light: #333;
 $font-color-green: #78A330;
 $font-color-red: #ff0000;
+$font-color-blue: #0088cc;
 $font-stack:'roboto', arial, helvetica, sans-serif;
 $font-stack-bold:'roboto-bold', arial, helvetica, sans-serif;
 $font-size:16px;
@@ -224,13 +225,15 @@ div.sidenav{
             width:100%;
 
             &:hover{
-                color:$highlight-color;
+                color:$brand-color;
                 background-color: darken($left-side-background-color, 5%);
             }
 
             &.selected{
-                background-color: $highlight-color;
-                color:#fff;
+                div:nth-child(1){
+                    background-color: $brand-color;
+                    color:#fff;
+                }
             }
 
             div{
@@ -301,7 +304,7 @@ section.app-tabs{
             }
             &.active > a{
                 border:none !important;
-                color:$highlight-color;
+                color:$font-color-blue;
                 background-color:#f7f7f7;
             }
         }
@@ -457,6 +460,7 @@ section.app-tabs{
         text-align:left;
         width:100%;
         margin:40px auto 10px;
+        font-size:1.5em;
         color:$font-color-light;
 
         &.passed{
