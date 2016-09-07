@@ -1,9 +1,10 @@
 //variables
 $font-color: #333;
 $font-color-light: #b7b0a4;
-$font-color-green: #00a000;
+$font-color-green: #78A330;
 $font-color-red: #ff0000;
 $font-stack:'roboto', arial, helvetica, sans-serif;
+$font-stack-bold:'roboto-bold', arial, helvetica, sans-serif;
 $font-size:16px;
 
 $background-color:#fff;
@@ -12,6 +13,8 @@ $primary-color: #d6d2cc;
 $secondary-color:#f1e8dc;
 $highlight-color:#f4511e;
 $brand-color:#7d7264;
+$header-bar-background-color:#e3e2df;
+$table-header-background-color:#f9f8f4;
 
 $left-side-color:#aca49a;
 $left-side-background-color:#fbf9f5;
@@ -36,6 +39,13 @@ $left-side-width: 280px;
     font-weight: normal;
 }
 
+@font-face{
+    font-family: 'roboto-bold';
+    src: url('/assets/fonts/roboto-bold-webfont.woff'),
+         url('/assets/fonts/roboto-bold-webfont.woff2');
+    font-weight: normal;
+}
+
 //styles
 html, body, p, div, section, header, ul, li {
     padding:0;
@@ -49,10 +59,10 @@ html, body, p, div, section, header, ul, li {
 
 html, body{
     width:100%;
-    min-width:1014px;
+    min-width:1060px;
     display:block !important;
-    height:99%;
-    min-height:99%;
+    height:100%;
+    min-height:100%;
     position:relative;
 }
 
@@ -299,11 +309,14 @@ section.app-tabs{
 
     div.metrics{
         height:130px;
-        border-bottom:1px solid #ddd;
+        border:1px solid #ddd;
+        border-bottom:none;
+        margin:0 auto;
 
         >div{
             border-right:1px solid #ddd;
             height:100%;
+            white-space: nowrap;
 
             &:last-child{
                 border-right:none;
@@ -344,10 +357,102 @@ section.app-tabs{
         }
     }
 
+    .panel-flat{
+        border-radius:0;
+    }
+
+    .panel-heading-custom{
+        padding:3px 10px;
+        background-color: $header-bar-background-color;
+
+        header{
+            padding:5px 0;
+
+            i{
+                font-size:24px;
+                display:none;
+
+                &.fa-exclamation-circle{
+                    color:$font-color-red;
+                }
+
+                &.fa-check-circle{
+                    color:$font-color-green;   
+                }
+
+                &.fa-caret-up,
+                &.fa-caret-down{
+                    font-size:16px;
+                    color:darken($header-bar-background-color,40%);   
+                }
+            } 
+
+            div.status-icon{
+                display:inline-block;
+                width:32px;
+                position:relative;
+                vertical-align: middle;
+                text-align: center;
+                margin:-1px 0 0 -5px;
+            }
+
+            h4{
+                font-family: $font-stack-bold; 
+                font-size:.9em;
+                display:inline-block;
+                text-align:left;
+                vertical-align: middle;
+                margin:0 5px;
+            }
+
+            div.collapse-direction-icon{
+                display:inline-block;
+                width:32px;  
+                text-align: left;
+                vertical-align: middle; 
+            }
+
+            &.passed div.status-icon{
+                i.fa-check-circle{
+                    display:block;
+                }    
+            }
+
+            &.failed div.status-icon{
+                i.fa-exclamation-circle{
+                    display:block;
+                }    
+            }
+        }
+
+        >a{
+            font-family: $font-stack;    
+            color:$font-color;
+            text-decoration: none;
+
+            i.fa-caret-down{
+                display:block;
+            } 
+
+            &.collapsed{
+                i.fa-caret-up{
+                    display:block;
+                } 
+                i.fa-caret-down{
+                    display:none;
+                } 
+            }
+        }
+    }
+
+    .panel-body-no-padding{
+        padding:0;
+    }
+
     h3.run-date{
-        text-align:center;
+        text-align:left;
         width:100%;
-        margin:70px 1% 10px;
+        margin:70px auto 10px;
         color:$font-color-light;
 
         &.passed{
@@ -361,44 +466,77 @@ section.app-tabs{
 
     table{
         color:$font-color;
-        border:1px solid #ddd;
-        width:98%;
+        width:100%;
         margin:0 auto;
         @include text-shadow();
 
-        th{
-            font-size:.8em;
-            font-weight:700;
-            background-color:#f9f9f9;
-            border:1px solid #ddd;
-        }
-        td{
-            font-size:.9em;
-            border:1px solid #ddd;
+        tr{
+            th{
+                font-size:.8em;
+                font-weight:700;
+                background-color:$table-header-background-color;
+                border:1px solid #ddd;
 
-            &.passed,
-            &.failed{
-                color:#fff;
-                min-width:32px;
-                position:relative;
-                
-                &:before{
-                    content: '';
-                    width:16px;
-                    height:16px;
-                    border-radius:8px;
-                    position:absolute;
-                    left: calc(50% - 8px);
+                &:first-child{
+                    border-left:none;
+                }
+
+                &:last-child{
+                    border-right:none;
+                }
+            }
+            td{
+                font-size:.9em;
+                border:1px solid #ddd;
+
+                &:first-child{
+                    border-left:none;
+                }
+
+                &:last-child{
+                    border-right:none;
+                }
+            }
+            
+            &:last-child {
+                td{
+                    border-bottom:none;
                 }
             }
 
-            &.passed:before{
+            &.passed,
+            &.failed{
+                td.status{
+                    color:#fff;
+                    width:36px;
+                    min-width:36px;
+                    position:relative;
+                    
+                    &:before{
+                        content: '';
+                        width:14px;
+                        height:14px;
+                        border-radius:7px;
+                        position:absolute;
+                        top:12px;
+                        left: calc(50% - 7px);
+                    }
+                }
+            }
+
+            &.passed td.status:before{
                 background-color:$font-color-green;
             }
-            &.failed:before{
-                background-color:$font-color-red;
+
+            &.failed{
+                color:$font-color-red;
+
+                td.status:before{
+                    background-color:$font-color-red;
+                }
             }
         }
+
     }
 }
 

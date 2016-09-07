@@ -12,8 +12,10 @@
         setPrintIconHandler();
 
         //set charts
-        setChart1();
-        setChart2();
+        setChart1_1();
+        setChart1_2();
+        setChart2_1();
+        setChart2_2();
     };
 
     //--------------------------------------
@@ -63,7 +65,7 @@
         win.print();
     };
 
-    var setChart1 = function(){
+    var setChart1_1 = function(){
         var data = getChartData1();
         var cnvFT = document.getElementById('cnv-failed-tests');
         var chartFailedTests = new Chart(cnvFT, {
@@ -73,9 +75,28 @@
 
     };
 
-    var setChart2 = function(){
+    var setChart1_2 = function(){
         var data = getChartData2();
         var cnvPP = document.getElementById('cnv-pass-percent');
+        var chartPassedPercent = new Chart(cnvPP, {
+            type: 'doughnut',
+            data: data
+        });
+    };
+
+    var setChart2_1 = function(){
+        var data = getChartData1();
+        var cnvFT = document.getElementById('cnv-failed-tests2');
+        var chartFailedTests = new Chart(cnvFT, {
+            type: 'doughnut',
+            data: data
+        });
+
+    };
+
+    var setChart2_2 = function(){
+        var data = getChartData2();
+        var cnvPP = document.getElementById('cnv-pass-percent2');
         var chartPassedPercent = new Chart(cnvPP, {
             type: 'doughnut',
             data: data
@@ -93,7 +114,7 @@
                 data: [12,0],
                 backgroundColor: [
                     "#ff0000",
-                    "#00a000"
+                    "#78A330"
                 ]
             }]
         };
@@ -108,7 +129,7 @@
                 data: [37,63],
                 backgroundColor: [
                     "#ff0000",
-                    "#00a000"
+                    "#78A330"
                 ]
             }]
         };
