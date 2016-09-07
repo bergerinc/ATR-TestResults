@@ -1,7 +1,7 @@
 //variables
 $font-color: #333;
 $font-color-light: #333;
-$font-color-green: #78A330;
+$font-color-green: #00a000;
 $font-color-red: #ff0000;
 $font-color-blue: #0088cc;
 $font-stack:'roboto', arial, helvetica, sans-serif;
@@ -225,13 +225,13 @@ div.sidenav{
             width:100%;
 
             &:hover{
-                color:$brand-color;
+                color:$highlight-color;
                 background-color: darken($left-side-background-color, 5%);
             }
 
             &.selected{
                 div:nth-child(1){
-                    background-color: $brand-color;
+                    background-color: $highlight-color;
                     color:#fff;
                 }
             }
@@ -300,7 +300,8 @@ section.app-tabs{
                 height:50px;
                 color:$font-color;  
                 border-radius:none;  
-                line-height:2em;   
+                line-height:2.4em;   
+                font-size:.9em;
             }
             &.active > a{
                 border:none !important;
@@ -494,7 +495,7 @@ section.app-tabs{
                 }
             }
             td{
-                font-size:.9em;
+                font-size:.8em;
                 border:1px solid #ddd;
 
                 &:first-child{
