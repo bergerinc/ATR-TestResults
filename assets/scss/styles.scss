@@ -357,6 +357,10 @@ section.app-tabs{
         }
     }
 
+    .panel-group-custom{
+        margin-bottom:70px;
+    }
+
     .panel-flat{
         border-radius:0;
     }
@@ -452,7 +456,7 @@ section.app-tabs{
     h3.run-date{
         text-align:left;
         width:100%;
-        margin:70px auto 10px;
+        margin:40px auto 10px;
         color:$font-color-light;
 
         &.passed{
