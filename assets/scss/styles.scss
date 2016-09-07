@@ -13,6 +13,7 @@ $background-color:#fff;
 $primary-color: #d6d2cc;
 $secondary-color:#f0e9e0;
 $highlight-color:#e25c12;
+$hover-color:#e8e5e0;
 $brand-color:#7d7264;
 $test-run-title-color:#333; 
 $header-bar-background-color:#e3e2df;
@@ -31,8 +32,8 @@ $left-side-width: 280px;
     box-sizing: border-box !important;
 }
 @mixin text-shadow(){
-    -moz-text-shadow: none;
-    text-shadow: none;
+    -moz-text-shadow: none !important;
+    text-shadow: none !important;
 }
 
 @font-face{
@@ -67,6 +68,7 @@ html, body{
     height:100%;
     min-height:100%;
     position:relative;
+    @include text-shadow();
 }
 
 div.body-content{
@@ -228,13 +230,13 @@ div.sidenav{
 
             &:hover{
                 color:$highlight-color;
-                background-color: darken($left-side-background-color, 5%);
+                background-color: $hover-color;
             }
 
             &.selected{
-                div:nth-child(1){
-                    background-color: $highlight-color;
-                    color:#fff;
+                div{
+                    background-color: $hover-color;
+                    color:$highlight-color;
                 }
             }
 
@@ -307,7 +309,7 @@ section.app-tabs{
             }
             &.active > a{
                 border:none !important;
-                color:$font-color-blue;
+                color:$highlight-color;
                 background-color:#f7f7f7;
             }
         }
@@ -498,9 +500,19 @@ section.app-tabs{
                 position:absolute;
                 top:3px;
                 left:20px;
-                color:darken($header-bar-background-color,20%);
+                color:rgba(0,0,0,0.3);
                 font-size:1.4em;
             }
+
+            &.failed{
+                background-color:$font-color-red;
+                color:#fff;
+
+                &:before{
+                    color:rgba(255,255,255,.7);
+                }
+            }
+
         }
 
         tr{
