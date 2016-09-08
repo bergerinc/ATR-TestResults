@@ -1,8 +1,8 @@
 //variables
 $font-color: #333;
 $font-color-light: #333;
-$font-color-green: #a1c855;
-$font-color-red: #ff4949;
+$font-color-green: #9cb074;
+$font-color-red: #e95151;
 $font-color-blue: #0088cc;
 $font-stack:'roboto', arial, helvetica, sans-serif;
 $font-stack-bold:'roboto-bold', arial, helvetica, sans-serif;
@@ -11,19 +11,19 @@ $font-size:16px;
 $background-color:#fff;
 
 $primary-color: #d6d2cc;
-$secondary-color:#f0e9e0;
+$secondary-color:#f1e8dc;
 $highlight-color:#e25c12;
-$hover-color:#e8e5e0;
 $brand-color:#7d7264;
 $test-run-title-color:#333; 
-$header-bar-background-color:#e3e2df;
-$table-header-background-color:#f9f8f4;
-$table-subheader-background-color:#f9f8f4;
+$header-bar-background-color:#e7e6e3;
+$table-header-background-color:#f7f7f7;
+$table-subheader-background-color:#f7f7f7;
 
 $left-side-color:#aca49a;
 $left-side-background-color:#fbf9f5;
 $left-side-border-color:#e0dcd6;
 $left-side-width: 280px;
+$hover-selected-color: darken($left-side-background-color,4%);
 
 //mixins
 @mixin box-sizing(){
@@ -227,16 +227,18 @@ div.sidenav{
             color:$left-side-color;
             display:table-row;
             width:100%;
+            cursor:pointer;
 
             &:hover{
                 color:$highlight-color;
-                background-color: $hover-color;
+                background-color: $hover-selected-color;
             }
 
             &.selected{
                 div{
-                    background-color: $hover-color;
+                    background-color: $hover-selected-color;
                     color:$highlight-color;
+                    cursor:default;
                 }
             }
 
@@ -307,10 +309,13 @@ section.app-tabs{
                 line-height:2.4em;   
                 font-size:.9em;
             }
-            &.active > a{
-                border:none !important;
-                color:$highlight-color;
-                background-color:#f7f7f7;
+            &:hover,
+            &.active{
+                > a{
+                    border:none !important;
+                    color:$highlight-color;
+                    background-color:lighten($hover-selected-color,2%);
+                }
             }
         }
     }
@@ -487,7 +492,6 @@ section.app-tabs{
 
         caption{
             font-size:.9em;
-            font-weight:700;
             color:$font-color;
             background-color: $table-header-background-color;
             padding:7px 10px 7px 40px;
@@ -504,8 +508,8 @@ section.app-tabs{
                 font-size:1.4em;
             }
 
-            &.failed{
-                background-color:$font-color-red;
+            &.failed,
+            &.passed{
                 color:#fff;
 
                 &:before{
@@ -513,12 +517,20 @@ section.app-tabs{
                 }
             }
 
+            &.failed{
+                background-color:$font-color-red;
+            }
+
+            &.passed{
+                background-color:$font-color-green;
+            }
+
         }
 
         tr{
             th{
                 font-size:.75em;
-                font-weight:700;
+                font-family:$font-stack-bold;
                 background-color:$table-subheader-background-color;
                 border:1px solid #ddd;
 
@@ -552,7 +564,7 @@ section.app-tabs{
             &.passed,
             &.failed{
                 td.status{
-                    color:#fff;
+                    color:transparent;
                     width:36px;
                     min-width:36px;
                     position:relative;

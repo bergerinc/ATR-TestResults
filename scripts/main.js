@@ -85,7 +85,7 @@
     };
 
     var setChart2_1 = function(){
-        var data = getChartData1();
+        var data = getChartData3();
         var cnvFT = document.getElementById('cnv-failed-tests2');
         var chartFailedTests = new Chart(cnvFT, {
             type: 'doughnut',
@@ -95,7 +95,7 @@
     };
 
     var setChart2_2 = function(){
-        var data = getChartData2();
+        var data = getChartData4();
         var cnvPP = document.getElementById('cnv-pass-percent2');
         var chartPassedPercent = new Chart(cnvPP, {
             type: 'doughnut',
@@ -111,10 +111,10 @@
             labels: [],
             datasets: [
             {
-                data: [12,0],
+                data: [53,160],
                 backgroundColor: [
-                    "#ff4949",
-                    "#a1c855"
+                    "#e95151",
+                    "#9fb477"
                 ]
             }]
         };
@@ -126,10 +126,40 @@
             labels: [],
             datasets: [
             {
-                data: [37,63],
+                data: [107,53],
                 backgroundColor: [
-                    "#ff4949",
-                    "#a1c855"
+                    "#9fb477",
+                    "#e95151"
+                ]
+            }]
+        };
+        return data;
+    };
+
+    var getChartData3 = function(){     
+        var data = {
+            labels: [],
+            datasets: [
+            {
+                data: [0,158],
+                backgroundColor: [
+                    "#e95151",
+                    "#9fb477"
+                ]
+            }]
+        };
+        return data;
+    };
+
+    var getChartData4 = function(){     
+        var data = {
+            labels: [],
+            datasets: [
+            {
+                data: [158,0],
+                backgroundColor: [
+                    "#9fb477",
+                    "#e95151"
                 ]
             }]
         };
