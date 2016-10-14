@@ -12,6 +12,13 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
+var environment_component_1 = require('./components/environment.component');
+var application_component_1 = require('./components/application.component');
+var server_component_1 = require('./components/server.component');
+var test_run_component_1 = require('./components/test-run.component');
+var feature_component_1 = require('./components/feature.component');
+var scenario_component_1 = require('./components/scenario.component');
+var step_component_1 = require('./components/step.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -19,10 +26,19 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
             ],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
+            declarations: [
+                app_component_1.AppComponent,
+                environment_component_1.EnvironmentComponent,
+                application_component_1.ApplicationComponent,
+                server_component_1.ServerComponent,
+                test_run_component_1.TestRunComponent,
+                feature_component_1.FeatureComponent,
+                scenario_component_1.ScenarioComponent,
+                step_component_1.StepComponent
+            ],
+            bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

@@ -9,18 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "This App Title";
+var ScenarioComponent = (function () {
+    function ScenarioComponent() {
+        this.name = "Scenario Name";
+        this.steps = [];
+        this.status = "PASSED";
     }
-    AppComponent = __decorate([
+    ScenarioComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <environments></environments>\n    "
+            selector: "scenario",
+            template: "<p>{{name}}</p>"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ScenarioComponent);
+    return ScenarioComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ScenarioComponent = ScenarioComponent;
+//# sourceMappingURL=scenario.component.js.map

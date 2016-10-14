@@ -9,18 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "This App Title";
+var environments_mock_1 = require('../mocks/environments.mock');
+var EnvironmentComponent = (function () {
+    function EnvironmentComponent() {
+        this.name = "Environment name goes here.";
     }
-    AppComponent = __decorate([
+    EnvironmentComponent.prototype.ngOnInit = function () {
+        this.environments = environments_mock_1.ENVIRONMENTS;
+    };
+    EnvironmentComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <environments></environments>\n    "
+            selector: "environments",
+            template: "<p>{{name}}</p>\n               <ul>\n                <li *ngFor=\"let env of environments\">\n                    {{env.name}}\n                </li>\n               </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], EnvironmentComponent);
+    return EnvironmentComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.EnvironmentComponent = EnvironmentComponent;
+//# sourceMappingURL=environment.component.js.map
