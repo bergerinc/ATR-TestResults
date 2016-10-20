@@ -2,8 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: "test-run",
-    template: `<p>Test Run</p>
-    `
+    templateUrl: '/app/templates/test-run-template.html'
 })
 export class TestRunComponent{
     features = [];

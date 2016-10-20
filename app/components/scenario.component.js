@@ -18,7 +18,7 @@ var ScenarioComponent = (function () {
     ScenarioComponent = __decorate([
         core_1.Component({
             selector: "scenario",
-            template: "<p>{{name}}</p>"
+            templateUrl: '/app/templates/scenario-template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], ScenarioComponent);

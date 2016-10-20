@@ -11,7 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
+var dashboard_component_1 = require('./components/dashboard.component');
 var environment_component_1 = require('./components/environment.component');
 var application_component_1 = require('./components/application.component');
 var server_component_1 = require('./components/server.component');
@@ -19,6 +21,8 @@ var test_run_component_1 = require('./components/test-run.component');
 var feature_component_1 = require('./components/feature.component');
 var scenario_component_1 = require('./components/scenario.component');
 var step_component_1 = require('./components/step.component');
+var sidenav_component_1 = require('./components/sidenav.component');
+var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,18 +31,22 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                http_1.HttpModule,
+                app_routing_1.routing
             ],
             declarations: [
                 app_component_1.AppComponent,
+                dashboard_component_1.DashboardComponent,
                 environment_component_1.EnvironmentComponent,
                 application_component_1.ApplicationComponent,
                 server_component_1.ServerComponent,
                 test_run_component_1.TestRunComponent,
                 feature_component_1.FeatureComponent,
                 scenario_component_1.ScenarioComponent,
-                step_component_1.StepComponent
+                step_component_1.StepComponent,
+                sidenav_component_1.SidenavComponent
             ],
-            bootstrap: [app_component_1.AppComponent],
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

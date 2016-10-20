@@ -1,21 +1,17 @@
-(function(win, $){
+(function(win, $, app){
     var obj = {};
 
-    $().ready(function(){
-        init();
-    });
-
-    var init = function(){
+    var pageInit = function(){
 
         //set event handlers
         setSideNavToggleHandler();
         setPrintIconHandler();
 
         //set charts
-        setChart1_1();
-        setChart1_2();
-        setChart2_1();
-        setChart2_2();
+        //setChart1_1();
+        //setChart1_2();
+        //setChart2_1();
+        //setChart2_2();
     };
 
     //--------------------------------------
@@ -166,4 +162,6 @@
         return data;
     };
 
-})(window, jQuery);
+    //assign to global app obj
+    app.pageInit = pageInit;
+})(window, jQuery, window.ATR_App = window.ATR_App || {});

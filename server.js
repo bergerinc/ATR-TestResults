@@ -17,6 +17,8 @@ var server = http.createServer(app);
 //------------------------------------------------------
 // Static Routes
 //------------------------------------------------------
+app.use('/',express.static(__dirname + '/'));
+app.use('/app',express.static(__dirname + '/app'));
 app.use('/css',express.static(__dirname + '/assets/css'));
 app.use('/fonts',express.static(__dirname + '/assets/fonts'));
 app.use('/images',express.static(__dirname + '/assets/images'));
@@ -26,17 +28,11 @@ app.use(bodyParser.json());
 
 
 //------------------------------------------------------
-// Resource Routes
-//------------------------------------------------------
-app.get('/', function(req,res){
-    res.sendFile(__dirname + '/index.html');
-});
-
-//------------------------------------------------------
 // API Routes
 //------------------------------------------------------
 app.get('/getTestResults', function(req, res){
-    res.status(200).json(_jsonFiles);
+    var data = { data: _jsonFiles };
+    res.status(200).json(data);
 });
 
 app.post('/publishTestResults', function(req, res){
@@ -63,6 +59,13 @@ app.post('/publishTestResults', function(req, res){
             "error" : ex.message
         });
     }
+});
+
+//------------------------------------------------------
+// Resource Routes
+//------------------------------------------------------
+app.get(["/", "/results", "/results/:enviromentName/:serverName"], function(req,res){
+    res.sendFile(__dirname + '/index.html');
 });
 
 

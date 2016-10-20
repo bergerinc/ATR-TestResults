@@ -40,7 +40,7 @@
     "build-css": "node-sass --output-style compressed assets/scss/ -o assets/css/",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" \"npm run watch-css\"",
+    "start": "concurrent \"npm run tsc:w\" \"node server\" \"npm run watch-css\"",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",

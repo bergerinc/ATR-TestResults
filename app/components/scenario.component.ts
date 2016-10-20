@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: "scenario",
-    template: `<p>{{name}}</p>`
+    templateUrl:'/app/templates/scenario-template.html'
 })
 
 export class ScenarioComponent{

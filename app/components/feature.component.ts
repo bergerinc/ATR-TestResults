@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: "feature",
-    template: `<p>{{name}}</p>`
+    templateUrl: 'app/templates/feature-template.html'
 })
 
 export class FeatureComponent {
-    name = "Feature Name";
+    name = "Issue Categories";
     scenarios = [];
     status = "PASSED";
 }

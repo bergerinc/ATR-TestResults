@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var TestRunComponent = (function () {
-    function TestRunComponent() {
-        this.features = [];
+var DashboardComponent = (function () {
+    function DashboardComponent() {
     }
-    TestRunComponent = __decorate([
+    DashboardComponent = __decorate([
         core_1.Component({
-            selector: "test-run",
-            templateUrl: '/app/templates/test-run-template.html'
+            moduleId: module.id,
+            selector: 'dashboard',
+            templateUrl: '../templates/dashboard.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], TestRunComponent);
-    return TestRunComponent;
+    ], DashboardComponent);
+    return DashboardComponent;
 }());
-exports.TestRunComponent = TestRunComponent;
-//# sourceMappingURL=test-run.component.js.map
+exports.DashboardComponent = DashboardComponent;
+//# sourceMappingURL=dashboard.component.js.map

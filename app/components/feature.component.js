@@ -11,14 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var FeatureComponent = (function () {
     function FeatureComponent() {
-        this.name = "Feature Name";
+        this.name = "Issue Categories";
         this.scenarios = [];
         this.status = "PASSED";
     }
     FeatureComponent = __decorate([
         core_1.Component({
             selector: "feature",
-            template: "<p>{{name}}</p>"
+            templateUrl: 'app/templates/feature-template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], FeatureComponent);

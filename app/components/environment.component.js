@@ -9,18 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var environments_mock_1 = require('../mocks/environments.mock');
 var EnvironmentComponent = (function () {
     function EnvironmentComponent() {
-        this.name = "Environment name goes here.";
     }
-    EnvironmentComponent.prototype.ngOnInit = function () {
-        this.environments = environments_mock_1.ENVIRONMENTS;
-    };
     EnvironmentComponent = __decorate([
         core_1.Component({
             selector: "environments",
-            template: "<p>{{name}}</p>\n               <ul>\n                <li *ngFor=\"let env of environments\">\n                    {{env.name}}\n                </li>\n               </ul>\n    "
+            template: "<h4>Environment Component</h4>"
         }), 
         __metadata('design:paramtypes', [])
     ], EnvironmentComponent);

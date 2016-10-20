@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 @Component({
-    selector: "server",
-    template: `<p>{{name}}</p>`
+    moduleId: module.id,
+    selector: 'server',
+    templateUrl: '../templates/server.component.html'
 })
 export class ServerComponent{
-    name = "Server Name goes here";
     applications = [];
 }

@@ -1,6 +1,6 @@
-  import { Server } from './server';
+  import { TestServer } from './test-server';
   
-  export class Environment{
+  export class Environment {
         name: string;
-        servers: Server[];
+        servers: TestServer[];
   }
