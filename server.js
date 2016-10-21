@@ -18,7 +18,7 @@ var server = http.createServer(app);
 // Static Routes
 //------------------------------------------------------
 app.use('/',express.static(__dirname + '/'));
-app.use('/app',express.static(__dirname + '/app'));
+app.use('/app',express.static(__dirname + '/dist'));
 app.use('/css',express.static(__dirname + '/assets/css'));
 app.use('/fonts',express.static(__dirname + '/assets/fonts'));
 app.use('/images',express.static(__dirname + '/assets/images'));
@@ -30,7 +30,41 @@ app.use(bodyParser.json());
 //------------------------------------------------------
 // API Routes
 //------------------------------------------------------
-app.get('/getTestResults', function(req, res){
+app.get('/getEnvironments', function(req, res){
+    var envs = [];
+    for(var i = 0; i < _jsonFiles.length; i++){
+        var thisEnv = _jsonFiles[i];
+        var env = {
+            Name: thisEnv.Name,
+            Servers: []
+        };
+        var servers = thisEnv.Servers;
+        for(var s = 0; s < servers.length; s++){
+            env.Servers.push({ Name: servers[s].Name });
+        }
+        
+        envs.push(env);
+    }
+    var data = { data: envs };
+    res.status(200).json(data);
+});
+
+app.get('/getTestResultsByServer', function(req, res){
+    for(var i = 0; i < _jsonFiles.length; i++){
+        
+        var thisEnv = _jsonFiles[i];
+        
+        var env = {
+            Name: thisEnv.Name,
+            Servers: []
+        };
+        var servers = thisEnv.Servers;
+        for(var s = 0; s < servers.length; s++){
+            env.Servers.push({ Name: servers[s].Name });
+        }
+        
+        envs.push(env);
+    }
     var data = { data: _jsonFiles };
     res.status(200).json(data);
 });

@@ -3,8 +3,9 @@ import { Environment } from './models/environment';
 import { EnvironmentService } from './services/environments-data.service';
 
 @Component({
+    moduleId: module.id,
     selector:'atr-app',
-    templateUrl: '/app/templates/app-template.html',
+    templateUrl: 'app.component.html',
     providers:[EnvironmentService]
 })
 
