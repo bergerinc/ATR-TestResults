@@ -1,6 +1,6 @@
 import { Scenario } from './scenario';
 
-export class Feature{
+export class Feature {
     name: string;
     passed: boolean;
     scenarios: Scenario[];    

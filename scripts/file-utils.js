@@ -159,5 +159,31 @@ var buildResultsFileJson = function(newFile, resultFiles){
     }
 };
 
+/// <summary>
+/// getEnvironments
+/// Reads existing json file from file system and creates 
+/// an array of environments and servers
+/// </summary>
+/// <params name="jsonFiles">array of published test results</param> 
+/// <returns>array of environments and servers</returns> 
+var getEnvironments = function(jsonFiles){
+    var envs = [];
+    for(var i = 0; i < jsonFiles.length; i++){
+        var thisEnv = jsonFiles[i];
+        var env = {
+            Name: thisEnv.Name,
+            Servers: []
+        };
+        var servers = thisEnv.Servers;
+        for(var s = 0; s < servers.length; s++){
+            env.Servers.push({ Name: servers[s].Name });
+        }
+        
+        envs.push(env);
+    }
+    return envs;
+};
+
 exports.loadDataFilesJson = loadDataFilesJson;
 exports.publishTestResultsJson = publishTestResultsJson;
+exports.getEnvironments = getEnvironments;

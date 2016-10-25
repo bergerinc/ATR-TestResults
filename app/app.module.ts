@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EnvironmentComponent } from './components/environment/environment.component';
-import { EnvironmentService } from './services/environments-data.service';
+import { TestResultsService } from './services/test-results.service';
 import { ApplicationComponent } from './components/application/application.component';
 import { ServerComponent } from './components/server/server.component';
 import { TestRunComponent } from './components/test-run/test-run.component';

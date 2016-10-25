@@ -1,0 +1,34 @@
+<!-- result -->
+<div *ngFor="let run of app.TestRuns, let idx = index">
+    <h3 class="run-date">Test Run: {{run.Date | date:'MM-dd-y hh:mm:ss a'}}</h3>
+    <div class="metrics row">
+        <div class="total-tests col-xs-3">
+            <header>Total Tests</header>
+            <div class="metrics-content">
+                <p>{{run.StepCount}}</p>
+            </div>
+        </div>
+        <div class="failed-tests col-xs-3">
+            <header>Failed Tests</header>
+            <div class="metrics-content">
+                <canvas id="cnv-failed-tests" width="60" height="60"></canvas>
+                <p>{{run.StepsFailed}}</p>
+            </div>
+        </div>
+        <div class="pass-percent col-xs-3">
+            <header>Pass Percentage</header>
+            <div class="metrics-content">
+                <canvas id="cnv-pass-percent" width="60" height="60"></canvas>
+                <p>{{(run.StepsPassed / run.StepCount) | percent: '1.0-0'}}</p>
+            </div>
+        </div>
+        <div class="run-duration col-xs-3">
+            <header>Run Duration</header>
+            <div class="metrics-content">
+                <p>{{run.Duration}}</p>
+            </div>
+        </div>
+    </div>
+    <feature [run]="run"></feature>
+</div>
+<!-- end result -->

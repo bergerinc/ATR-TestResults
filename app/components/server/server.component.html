@@ -1,0 +1,19 @@
+<section class="app-tabs">
+    <ul class="nav nav-tabs">
+        <li *ngFor="let app of applications, let idx = index" [class.active]="idx === 0">
+            <a data-toggle="tab" href="#{{app.Name}}" (click)="setSelectedApp(app);">{{app.Name}}</a>
+        </li>
+    </ul>  
+    <div class="tab-content">
+
+        <!-- tab 1 -->
+        <div *ngIf="selectedApp" id="{{selectedApp.Name}}" class="tab-pane fade in active">
+            <div class="container-fluid">
+
+                <test-app [app]="selectedApp" [environmentName]="environmentName" [serverName]="serverName"></test-app>
+
+            </div>
+        </div><!-- end tab 1 -->
+
+    </div> 
+</section>

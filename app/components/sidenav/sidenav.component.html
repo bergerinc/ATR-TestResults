@@ -1,0 +1,23 @@
+<div class="sidenav">
+    <ul>
+        <li>
+            <div><span class="fa fa-dashboard"></span></div>
+            <div routerLink="/">Dashboard</div>
+        </li>
+    </ul>
+
+    <div *ngFor="let env of environments">
+        <ul>
+            <li class="environment-header">
+                <div><span class="fa fa-cloud"></span></div>
+                <div>{{env.Name}}</div>
+            </li>
+        </ul>
+        <ul>
+            <li *ngFor="let svr of env.Servers">
+                <div><span class="fa fa-server"></span></div>
+                <div routerLink="/results/{{env.Name}}/{{svr.Name}}">{{svr.Name}}</div>
+            </li>
+        </ul>
+    </div>
+</div> <!-- end sidenav -->
