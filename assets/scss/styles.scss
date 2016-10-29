@@ -26,6 +26,8 @@ $left-side-width: 280px;
 $sidenav-header-color: lighten($primary-color, 8%);
 $hover-selected-color: darken($left-side-background-color, 4%);
 
+$dashboard-chart-border: #e0dcd6;
+
 //mixins
 @mixin box-sizing {
   box-sizing: border-box;
@@ -294,7 +296,6 @@ nav {
         background-color: $sidenav-header-color;
         color: darken($left-side-color, 10%);
         cursor: default;
-        display: block;
         font-family: $font-stack-bold;
         font-size: .8em;
         height: 28px;
@@ -715,6 +716,76 @@ nav {
 
       &.active {
         display: inline-block;
+      }
+    }
+  }
+}
+
+.dashboard {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 10px;
+  text-align: center;
+  width: 100%;
+
+  canvas {
+    border: 1px solid $dashboard-chart-border;
+    margin: 20px auto;
+    padding: 10px 20px;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  .chart-table {
+    border: 1px solid $dashboard-chart-border;
+    display: block;
+    height: 100%;
+    margin: 20px auto;
+    min-height: 100%;
+    padding: 15px 10px 10px;
+    width: 100%;
+
+    table {
+      height: auto;
+      width: 100%;
+
+      tr {
+        border-top: 1px solid $dashboard-chart-border;
+
+        th {
+          background-color: rgba(224, 220, 214, .5);
+          padding: 7px 9px;
+
+          &:nth-child(1) {
+            text-align: left;
+          }
+
+          &:nth-child(2) {
+            text-align: right;
+          }
+        }
+
+        td {
+          padding: 7px 9px;
+
+          &:nth-child(1) {
+            text-align: left;
+          }
+
+          &:nth-child(2) {
+            text-align: right;
+          }
+
+          &.passed {
+            color: darken($font-color-green, 10%);
+          }
+
+          &.failed {
+            color: darken($font-color-red, 10%);
+          }
+        }
       }
     }
   }

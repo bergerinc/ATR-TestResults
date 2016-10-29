@@ -9,22 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var app_component_1 = require('../../app.component');
+var test_results_service_1 = require('../../services/test-results.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(_appComp, _route, _router) {
+    function DashboardComponent(_appComp, _svc) {
         this._appComp = _appComp;
-        this._route = _route;
-        this._router = _router;
+        this._svc = _svc;
         this._appComp.setPageTitle("Dashboard");
+        this.getOverallResults();
     }
+    DashboardComponent.prototype.getOverallResults = function () {
+        this._svc.getOverallTestResults().su;
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'dashboard',
             templateUrl: 'dashboard.component.html'
         }), 
-        __metadata('design:paramtypes', [app_component_1.AppComponent, router_1.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [app_component_1.AppComponent, test_results_service_1.TestResultsService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

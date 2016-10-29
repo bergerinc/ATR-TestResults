@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import { AppComponent } from '../../app.component';
+import { TestResultsService } from '../../services/test-results.service';
 
 @Component({
     moduleId: module.id,
@@ -9,7 +9,12 @@ import { AppComponent } from '../../app.component';
 })
 
 export class DashboardComponent {
-    constructor(private _appComp: AppComponent, private _route: ActivatedRoute, private _router: Router){
+    constructor(private _appComp: AppComponent, private _svc: TestResultsService){
         this._appComp.setPageTitle("Dashboard");
+        this.getOverallResults();
+    }
+
+    getOverallResults(){
+        this._svc.getOverallTestResults().su
     }
 }

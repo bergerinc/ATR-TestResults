@@ -1,1 +1,24 @@
-<h4>dashboard</h4>
+<section class="dashboard">
+    <div class="dashboard-charts container-fluid">
+        <div class="row">
+            <div class="col-lg-6 chart_1">
+                <h4>Test Status All Environments</h4>
+                <test-results-overall-table></test-results-overall-table>
+            </div>
+            <div class="col-lg-6 chart_2">
+                <h4>Pass Percentage By Application</h4>
+                <canvas id="chart-app-results" test-results-by-app-chart></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 chart_3">
+                <h4>Pass Percentage By Server</h4>
+                <canvas id="chart-srv-results" test-results-by-server-chart></canvas>
+            </div>
+            <div class="col-lg-6 chart_4">
+                <h4>Pass Percentage By Environment</h4>
+                <canvas id="chart-env-results" test-results-by-env-chart></canvas>
+            </div>
+        </div>
+    </div>
+</section>

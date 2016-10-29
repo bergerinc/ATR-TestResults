@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, trigger, state, style, transition, animate } from '@angular/core';
 import { Environment } from '../../models/environment';
 import { TestResultsService } from '../../services/test-results.service';
 

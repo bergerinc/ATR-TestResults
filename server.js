@@ -1,12 +1,16 @@
+/*jslint node: true */
+'use strict';
+
 var http = require('http');
 var express = require('express');
 var bodyParser = require("body-parser");
 var fs = require('fs');
 var app = express();
 
-var fileUtils = require('./scripts/file-utils');
+var fileUtils = require('./server/file-utils');
 var _dataPath = __dirname + '\\data';
 var _jsonFiles = fileUtils.loadDataFilesJson(_dataPath); //on app start get data
+var _dashboardResultsJson = fileUtils.loadDashboardResultsJson(_jsonFiles); //on app start get data
 
 var server = http.createServer(app);
 
@@ -31,12 +35,12 @@ app.use(bodyParser.json());
 // API Routes
 //------------------------------------------------------
 app.get('/getEnvironments/:refreshCache?', function(req, res){
-    debugger;
     var envs = [];
     try{
         var refreshCache = (req.params.refreshCache && req.params.refreshCache === 'true')? true : false;
         if(refreshCache){
             _jsonFiles = fileUtils.loadDataFilesJson(_dataPath);
+            _dashboardResultsJson = fileUtils.loadDashboardResultsJson(_jsonFiles);
         }
 
         envs = fileUtils.getEnvironments(_jsonFiles);
@@ -51,7 +55,7 @@ app.get('/getEnvironments/:refreshCache?', function(req, res){
     }
 });
 
-app.get('/getTestResultsByServer/:envName/:srvName', function(req, res){
+app.get('/getTestResultDataByServer/:envName/:srvName', function(req, res){
     var server = {};
     for(var i = 0; i < _jsonFiles.length; i++){
         var thisEnv = _jsonFiles[i];
@@ -70,6 +74,62 @@ app.get('/getTestResultsByServer/:envName/:srvName', function(req, res){
     res.status(200).json(data);
 });
 
+app.get('/getTestResultsByEnvironment', function(req, res){
+    try{
+        var results = {};
+        results = fileUtils.getEnvironmentDashboardResults(_dashboardResultsJson);
+        var data = { data: results };
+        res.status(200).json(data);
+    } catch(ex) {
+        res.status(400).send({ 
+            "success" : false,
+            "error" : ex.message
+        });
+    }
+});
+
+app.get('/getTestResultsByServer', function(req, res){
+    try{
+        var results = {};
+        results = fileUtils.getServerDashboardResults(_dashboardResultsJson);
+        var data = { data: results };
+        res.status(200).json(data);
+    } catch(ex) {
+        res.status(400).send({ 
+            "success" : false,
+            "error" : ex.message
+        });
+    }
+});
+
+app.get('/getTestResultsByApplication', function(req, res){
+    try{
+        var results = {};
+        results = fileUtils.getApplicationDashboardResults(_dashboardResultsJson);
+        var data = { data: results };
+        res.status(200).json(data);
+    } catch(ex) {
+        res.status(400).send({ 
+            "success" : false,
+            "error" : ex.message
+        });
+    }
+});
+
+app.get('/getTestResultsOverallSummary', function(req, res){
+    try{
+        var results = {};
+        results = fileUtils.getOverallDashboardResults(_dashboardResultsJson);
+        var data = { data: results };
+        res.status(200).json(data);
+    } catch(ex) {
+        res.status(400).send({ 
+            "success" : false,
+            "error" : ex.message
+        });
+    }
+});
+
 app.post('/publishTestResults', function(req, res){
     try{
         if(!req.body.data){ throw "Invalid json 'data' object."; }
@@ -84,6 +144,7 @@ app.post('/publishTestResults', function(req, res){
             function(err){
                 if(err){ throw err; }
                 _jsonFiles = fileUtils.loadDataFilesJson(_dataPath); //update/reset cache
+                _dashboardResultsJson = fileUtils.loadDashboardResultsJson(_jsonFiles); //update/reset cache
                 res.status(200).send({ "success" : true });
             }
         );
@@ -104,6 +165,6 @@ app.get(["/", "/results", "/results/:enviromentName/:serverName"], function(req,
 });
 
 
-server.listen(3000, function(){
-    console.log('Server is listening on port 3000');
+server.listen(5000, function(){
+    console.log('Server is listening on port 5000');
 });

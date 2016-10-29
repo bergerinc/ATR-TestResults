@@ -16,24 +16,60 @@ require('rxjs/add/operator/catch');
 var TestResultsService = (function () {
     function TestResultsService(_http) {
         this._http = _http;
-        this._testResultsUrl = 'http://localhost:3000/getEnvironments';
-        this._serverTestDataUrl = 'http://localhost:3000/getTestResultsByServer';
+        this._testResultsUrl = 'http://localhost:5000/getEnvironments';
+        this._serverTestDataUrl = 'http://localhost:5000/getTestResultDataByServer';
+        this._overallTestResultsDataUrl = 'http://localhost:5000/getTestResultsOverallSummary';
+        this._envTestResultsDataUrl = 'http://localhost:5000/getTestResultsByEnvironment';
+        this._serverTestResultsDataUrl = 'http://localhost:5000/getTestResultsByServer';
+        this._appTestResultsDataUrl = 'http://localhost:5000/getTestResultsByApplication';
     }
     TestResultsService.prototype.getEnvironmentData = function (refresh) {
         try {
             var url = (refresh) ? this._testResultsUrl + '/' + refresh.toString() : this._testResultsUrl;
             return this._http.get(url).map(function (res) { return res.json().data; });
         }
-        catch (err) {
-            console.log(err);
+        catch (ex) {
+            console.log(ex);
         }
     };
     TestResultsService.prototype.getServerData = function (envName, srvName) {
         try {
             return this._http.get(this._serverTestDataUrl + '/' + envName + '/' + srvName).map(function (res) { return res.json().data; });
         }
-        catch (err) {
-            console.log(err);
+        catch (ex) {
+            console.log(ex);
+        }
+    };
+    TestResultsService.prototype.getOverallTestResults = function () {
+        try {
+            return this._http.get(this._overallTestResultsDataUrl).map(function (res) { return res.json().data; });
+        }
+        catch (ex) {
+            console.log(ex);
+        }
+    };
+    TestResultsService.prototype.getTestResultsByEnvironment = function () {
+        try {
+            return this._http.get(this._envTestResultsDataUrl).map(function (res) { return res.json().data; });
+        }
+        catch (ex) {
+            console.log(ex);
+        }
+    };
+    TestResultsService.prototype.getTestResultsByServer = function () {
+        try {
+            return this._http.get(this._serverTestResultsDataUrl).map(function (res) { return res.json().data; });
+        }
+        catch (ex) {
+            console.log(ex);
+        }
+    };
+    TestResultsService.prototype.getTestResultsByApplication = function () {
+        try {
+            return this._http.get(this._appTestResultsDataUrl).map(function (res) { return res.json().data; });
+        }
+        catch (ex) {
+            console.log(ex);
         }
     };
     TestResultsService = __decorate([

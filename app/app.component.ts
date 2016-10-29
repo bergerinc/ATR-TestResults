@@ -22,26 +22,24 @@ export class AppComponent implements OnInit, AfterViewInit{
         this.getEnvironments();
     }
     ngAfterViewInit() {
-        window['ATR_App'].pageInit();
+        let app = window[<any>'ATR_App'];
+        app.pageInit();
     }
-    setPageTitle(pageTitle){
+    setPageTitle(pageTitle: string){
         this.pageTitle = pageTitle;
     }
-    getEnvironments(refresh?) {
+    getEnvironments(refresh?: boolean) {
         this._testResultsSvc.getEnvironmentData().subscribe(res => {
             this.environments = res;
         });
     }
     refreshTestResults(){
-        debugger;
         this._testResultsSvc.getEnvironmentData(true).subscribe(res => {
             this.environments = res;
-
-
             if(this.environments){
-                this.selectedEnvironmentName = this.environments[0].Name;
-                this.selectedServerName = this.environments[0].Servers[0].Name;
-                this._router.navigate(['/results/' + this.selectedEnvironmentName + '/' + this.selectedServerName]);
+                this.selectedEnvironmentName = res[0].Name;
+                this.selectedServerName = res[0].Servers[0].Name;
+                this._router.navigate(['/']);
             }
         });
     }

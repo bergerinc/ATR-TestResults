@@ -22,7 +22,8 @@ var AppComponent = (function () {
         this.getEnvironments();
     };
     AppComponent.prototype.ngAfterViewInit = function () {
-        window['ATR_App'].pageInit();
+        var app = window['ATR_App'];
+        app.pageInit();
     };
     AppComponent.prototype.setPageTitle = function (pageTitle) {
         this.pageTitle = pageTitle;
@@ -35,13 +36,12 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.refreshTestResults = function () {
         var _this = this;
-        debugger;
         this._testResultsSvc.getEnvironmentData(true).subscribe(function (res) {
             _this.environments = res;
             if (_this.environments) {
-                _this.selectedEnvironmentName = _this.environments[0].Name;
-                _this.selectedServerName = _this.environments[0].Servers[0].Name;
-                _this._router.navigate(['/results/' + _this.selectedEnvironmentName + '/' + _this.selectedServerName]);
+                _this.selectedEnvironmentName = res[0].Name;
+                _this.selectedServerName = res[0].Servers[0].Name;
+                _this._router.navigate(['/']);
             }
         });
     };

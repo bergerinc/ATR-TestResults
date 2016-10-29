@@ -5,7 +5,6 @@
 
         //set event handlers
         setSideNavToggleHandler();
-        setPrintIconHandler();
 
         //set charts
         //setChart1_1();
@@ -24,12 +23,6 @@
         });
     };
 
-    var setPrintIconHandler = function(){
-        //set event handler for side nav toggle
-        $('div.nav-items span.fa-print').on('click', function(){
-            printWindow();
-        });
-    };
 
     //--------------------------------------
     // Workers
@@ -55,10 +48,6 @@
                 left:50
             }, 750, function(){});
         }
-    };
-
-    var printWindow = function(){
-        win.print();
     };
 
     var setChart1_1 = function(){

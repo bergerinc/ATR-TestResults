@@ -1,20 +1,17 @@
 <div class="sidenav">
-    <ul>
-        <li>
-            <div><span class="fa fa-dashboard"></span></div>
-            <div routerLink="/">Dashboard</div>
-        </li>
-    </ul>
-
-    <div *ngFor="let env of environments">
+    <div *ngFor="let env of environments, let idx = index">
         <ul>
-            <li class="environment-header">
+            <li *ngIf="idx === 0">
+                <div><span class="fa fa-dashboard"></span></div>
+                <div routerLink="/">Dashboard</div>
+            </li>
+
+            <li *ngIf="env.Name" class="environment-header">
                 <div><span class="fa fa-cloud"></span></div>
                 <div>{{env.Name}}</div>
             </li>
-        </ul>
-        <ul>
-            <li *ngFor="let svr of env.Servers">
+
+            <li *ngFor="let svr of env.Servers" [routerLinkActive]="['selected']">
                 <div><span class="fa fa-server"></span></div>
                 <div routerLink="/results/{{env.Name}}/{{svr.Name}}">{{svr.Name}}</div>
             </li>

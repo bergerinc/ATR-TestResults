@@ -1,7 +1,7 @@
 <div *ngFor="let feature of run.Features, let idx = index" class="panel-group panel-group-custom">
     <div class="panel panel-default panel-flat">
         <div class="panel-heading panel-heading-custom">
-            <a href="#{{run.Guid}}_{{idx}}" data-toggle="collapse" class="collapsed" aria-expanded="false">
+            <a href="#{{run.Guid}}_{{idx}}" data-toggle="collapse" aria-expanded="true">
                 <header class="panel-title failed">
                     <div class="status-icon">
                         <i class="fa fa-exclamation-circle"></i>
@@ -15,7 +15,7 @@
                 </header>
             </a>
         </div>
-        <div id="{{run.Guid}}_{{idx}}" class="panel-collapse collapse">
+        <div id="{{run.Guid}}_{{idx}}" class="panel-collapse collapse in">
             <div class="panel-body panel-body-no-padding">
                 <scenario [feature]="feature"></scenario>
             </div>
