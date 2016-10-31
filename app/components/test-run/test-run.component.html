@@ -1,5 +1,5 @@
 <!-- result -->
-<div *ngFor="let run of app.TestRuns, let idx = index">
+<div class="test-run" *ngFor="let run of app.TestRuns, let idx = index">
     <h3 class="run-date">Test Run: {{run.Date | date:'MM-dd-y hh:mm:ss a'}}</h3>
     <div class="metrics row">
         <div class="total-tests col-xs-3">
