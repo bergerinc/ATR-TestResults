@@ -5,21 +5,21 @@
         <div class="total-tests col-xs-3">
             <header>Total Tests</header>
             <div class="metrics-content">
-                <p>{{run.StepCount}}</p>
+                <p>{{run.ScenarioCount}}</p>
             </div>
         </div>
         <div class="failed-tests col-xs-3">
             <header>Failed Tests</header>
             <div class="metrics-content">
                 <canvas id="cnv-failed-tests" width="60" height="60"></canvas>
-                <p>{{run.StepsFailed}}</p>
+                <p>{{run.ScenariosFailed}}</p>
             </div>
         </div>
         <div class="pass-percent col-xs-3">
             <header>Pass Percentage</header>
             <div class="metrics-content">
                 <canvas id="cnv-pass-percent" width="60" height="60"></canvas>
-                <p>{{(run.StepsPassed / run.StepCount) | percent: '1.0-0'}}</p>
+                <p>{{(run.ScenariosPassed / run.ScenarioCount) | percent: '1.0-0'}}</p>
             </div>
         </div>
         <div class="run-duration col-xs-3">

@@ -11,10 +11,5 @@ import { TestResultsService } from '../../services/test-results.service';
 export class DashboardComponent {
     constructor(private _appComp: AppComponent, private _svc: TestResultsService){
         this._appComp.setPageTitle("Dashboard");
-        this.getOverallResults();
-    }
-
-    getOverallResults(){
-        this._svc.getOverallTestResults().su
     }
 }
