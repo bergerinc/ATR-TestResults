@@ -1,5 +1,5 @@
 <table *ngFor="let scenario of feature.Scenarios" class="table">
-    <caption class="failed">{{scenario.Name}}</caption>
+    <caption [class.passed]="scenario.Passed" [class.failed]="!scenario.Passed">{{scenario.Name}}</caption>
     <thead>
         <tr>
             <th>Status</th>
@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let step of scenario.Steps" class="{{scenario.Passed && 'passed' || 'failed'}}">
+        <tr *ngFor="let step of scenario.Steps" [class.passed]="scenario.Passed" [class.failed]="!scenario.Passed">
             <td class="status">{{step.Passed && 'Y' || 'N'}}</td>
             <td class="step">{{step.Name}}</td>
             <td class="stack">{{step.Stack && step.Stack || 'n/a'}}</td>
