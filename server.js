@@ -164,7 +164,7 @@ app.get(["/", "/results", "/results/:enviromentName/:serverName"], function(req,
     res.sendFile(__dirname + '/index.html');
 });
 
-
-server.listen(5000, function(){
-    console.log('Server is listening on port 5000');
+var portNum = (process.env.port || 5000);
+server.listen(portNum, function(){
+    console.log('Server is listening on port ' + portNum);
 });
