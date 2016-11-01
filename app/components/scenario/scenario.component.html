@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let step of scenario.Steps" [class.passed]="scenario.Passed" [class.failed]="!scenario.Passed">
+        <tr *ngFor="let step of scenario.Steps" [class.passed]="step.Passed" [class.failed]="!step.Passed">
             <td class="status">{{step.Passed && 'Y' || 'N'}}</td>
             <td class="step">{{step.Name}}</td>
             <td class="stack">{{step.Stack && step.Stack || 'n/a'}}</td>
