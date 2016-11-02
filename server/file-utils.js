@@ -147,7 +147,8 @@ var buildResultsFileJson = function(newFile, resultFiles){
                                 var testRunCount = currApp.TestRuns.length;
                                 
                                 //crop array if adding this item will exceed max length
-                                if (testRunCount >= 5){ currApp.TestRuns.shift(); } 
+                                currApp.TestRuns.sort(function(a, b){ return Date.parse(b.Date) - Date.parse(a.Date); });
+                                if (testRunCount >= 5){ currApp.TestRuns.pop(); } 
 
                                 //add new test run and sort
                                 currApp.TestRuns.push(newFile.Servers[0].Applications[0].TestRuns[0]);
