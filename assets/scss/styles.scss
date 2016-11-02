@@ -544,12 +544,18 @@ nav {
     padding: 0;
   }
 
+  .run-by {
+    color: lighten($font-color, 40%);
+    font-family: $font-stack;
+    font-size: .95rem;
+    margin: 46px 20px 0 15px;
+  }
+
   .run-date {
     color: $test-run-title-color;
     font-size: 1.4em;
-    margin: 40px auto 10px;
+    margin: 40px auto 10px 15px;
     text-align: left;
-    width: 98%;
 
     &.passed {
       color: $font-color-green;

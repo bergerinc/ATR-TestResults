@@ -16,11 +16,7 @@ var DashboardComponent = (function () {
         this._appComp = _appComp;
         this._svc = _svc;
         this._appComp.setPageTitle("Dashboard");
-        this.getOverallResults();
     }
-    DashboardComponent.prototype.getOverallResults = function () {
-        this._svc.getOverallTestResults().su;
-    };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
