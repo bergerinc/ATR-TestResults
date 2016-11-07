@@ -7,7 +7,7 @@ This is a web application designed to display the results of SpecFlow (gherkin/c
 The application contains a RESTful API to accept and publish results from external sources. It also serves display data to the application's front-end.
 
 ## User Interface
-The UI is Bootstrap with Angular 2 and a little bit of jQuery.
+The UI is Bootstrap with Angular 2, Chart.js and a little bit of jQuery.
 
 ## Installation
 1. Clone this repo.
