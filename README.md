@@ -10,8 +10,7 @@ The application contains a RESTful API to accept and publish results from extern
 The UI is Bootstrap with Angular 2 and a little bit of jQuery.
 
 ## Installation
-Installation is pretty straightforward.
-1) Clone this repo.
-2) run npm install.
-3) run npm start.
-4) Navigate to localhost:5000 in your favorite browser.
+1. Clone this repo.
+2. Run 'npm install'.
+3. Run 'npm start'.
+4. Navigate to localhost:5000 in your favorite browser.
