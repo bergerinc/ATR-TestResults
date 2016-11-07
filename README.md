@@ -1,6 +1,6 @@
 # ATR- TestResults
 
-## Purpose
+## Overview
 This is a web application designed to display the results of SpecFlow (gherkin/cucumber) application tests. The application uses Express, Angular 2 and Node. 
 
 ## REST API
