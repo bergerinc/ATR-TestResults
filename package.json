@@ -34,7 +34,9 @@
     "typescript": "^2.0.2",
     "typings": "^1.3.2"
   },
-  "repository": {},
+  "repository": {
+    "url": "https://github.com/codesauceio/ATR-TestResults-Angular2.git"
+  },
   "scripts": {
     "build-css": "node-sass --output-style compressed assets/scss/ -o assets/css/",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",

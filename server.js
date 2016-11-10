@@ -29,15 +29,13 @@ app.use('/images',express.static(__dirname + '/assets/images'));
 app.use('/modules',express.static(__dirname + '/node_modules'));
 app.use('/js',express.static(__dirname + '/scripts'));
 
-app.use(bodyParser().json({limit: '100mb'}));
+app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({
   limit: '100mb',
   extended: true,
   parameterLimit:100000,
   type:'application/x-www-form-urlencoding'
 }));
-
-console.log();
 
 
 //------------------------------------------------------
